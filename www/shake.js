@@ -6,7 +6,7 @@ module.exports = (function () {
     var watchId = null;
 
     var options = {
-        frequency: 300
+        frequency: 100
     };
 
     var previousAcceleration = {
