@@ -79,7 +79,7 @@ module.exports = (function () {
             timeout = setTimeout(function () {
                 clearTimeout(timeout);
                 timeout = null;
-            }, 0);
+            }, 50);
 
             onShake();
         };
