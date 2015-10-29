@@ -49,7 +49,6 @@ module.exports = (function () {
 
     // Assess the current acceleration parameters to determine a shake
     var assessCurrentAcceleration = function (acceleration) {
-    	console.log("Acceleration Object: " + JSON.stringify(acceleration));
         var accelerationChange = {};
         if (previousAcceleration.x !== null) {
             accelerationChange.x = Math.abs(previousAcceleration.x - acceleration.x);
@@ -65,12 +64,12 @@ module.exports = (function () {
 
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
             // Shake detected
-            shakeCallBack();
+            shakeCallBack(acceleration.timestamp);
         }
     };
 
     // can be used to prevent duplicate shakes within x ms where x is he timeout value
-    var debounce = function (onShake) {
+    var debounce = function (onShake, timestamp) {
         var timeout;
         return function () {
             if (timeout) {
@@ -82,7 +81,7 @@ module.exports = (function () {
                 timeout = null;
             }, 50);
 
-            onShake();
+            onShake(timestamp);
         };
     };
 
