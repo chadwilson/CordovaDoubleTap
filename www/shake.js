@@ -17,6 +17,7 @@ module.exports = (function () {
 
     var shakeCallBack = null;
     var sensitivity = 30;
+    var timestamp = null;
 
     // Start watching the accelerometer for a shake gesture
     shake.startWatch = function (onShake, _sensitivity, onError) {
@@ -64,12 +65,13 @@ module.exports = (function () {
 
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
             // Shake detected
-            shakeCallBack(acceleration.timestamp);
+        	timestamp = acceleration.timestamp;
+            shakeCallBack();
         }
     };
 
     // can be used to prevent duplicate shakes within x ms where x is he timeout value
-    var debounce = function (onShake, timestamp) {
+    var debounce = function (onShake) {
         var timeout;
         return function () {
             if (timeout) {
