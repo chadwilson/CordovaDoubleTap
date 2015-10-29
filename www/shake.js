@@ -49,6 +49,7 @@ module.exports = (function () {
 
     // Assess the current acceleration parameters to determine a shake
     var assessCurrentAcceleration = function (acceleration) {
+    	console.log("Acceleration Object: " + JSON.stringify(acceleration));
         var accelerationChange = {};
         if (previousAcceleration.x !== null) {
             accelerationChange.x = Math.abs(previousAcceleration.x - acceleration.x);
