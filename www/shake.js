@@ -63,7 +63,7 @@ module.exports = (function () {
             z: acceleration.z
         };
         
-        console.log("Acceleration: " +acceleration + " Acceleration Change: " + accelerationChange + " Previous Acceleration: " + previousAcceleration);
+        console.log("Acceleration: " +JSON.stringify(acceleration) + " Acceleration Change: " + JSON.stringify(accelerationChange) + " Previous Acceleration: " + JSON.stringify(previousAcceleration));
 
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
             // Shake detected
