@@ -56,12 +56,14 @@ module.exports = (function () {
             accelerationChange.y = Math.abs(previousAcceleration.y - acceleration.y);
             accelerationChange.z = Math.abs(previousAcceleration.z - acceleration.z);
         }
-
+        
         previousAcceleration = {
             x: acceleration.x,
             y: acceleration.y,
             z: acceleration.z
         };
+        
+        console.log("Acceleration: " +acceleration + " Acceleration Change: " + accelerationChange + " Previous Acceleration: " + previousAcceleration);
 
         if (accelerationChange.x + accelerationChange.y + accelerationChange.z > sensitivity) {
             // Shake detected
