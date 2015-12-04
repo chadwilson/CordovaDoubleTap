@@ -34,6 +34,7 @@ module.exports = (function () {
 
     // Assess the current acceleration parameters to determine a shake
     var assessCurrentAcceleration = function (acceleration) { 
+    	acceleration.magnitude = acceleration.x+acceleration.y+acceleration.z;
     	data.push(acceleration);
     };
 
