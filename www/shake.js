@@ -23,18 +23,21 @@ module.exports = (function () {
     	if (typeof (onStop) !== "function") {
             return;
         }
-    	
+
         if (watchId !== null) {
             navigator.accelerometer.clearWatch(watchId);
             watchId = null;
         }
-        
+
         onStop(data);
     };
 
     // Assess the current acceleration parameters to determine a shake
-    var assessCurrentAcceleration = function (acceleration) { 
-    	acceleration.magnitude = acceleration.x+acceleration.y+acceleration.z;
+    var assessCurrentAcceleration = function (acceleration) {
+    	acceleration.magnitudeSquared = (acceleration.x * acceleration.x) +
+        (acceleration.y * acceleration.y) +
+        (acceleration.z * acceleration.z);
+      acceleration.actualTimestamp = Date.now();
     	data.push(acceleration);
     };
 
