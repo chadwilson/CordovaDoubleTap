@@ -1,5 +1,8 @@
 ## Shake Gesture Detection for Cordova [![npm version](https://badge.fury.io/js/cordova-plugin-shake.svg)](http://badge.fury.io/js/cordova-plugin-shake)
 
+THIS IS OUT OF DATE -- This is intended for internal use atm.  If you find this and wish to use it feel free, but it is significantly altered from it's original form, and serves a particular function and as such is unlikely to be maintained for anything other than that function.  If you would like to make alterations, please feel free to reach out.
+
+
 Apache Cordova / PhoneGap Plugin to detect when a physical device performs a shake gesture.
 
 This is based on a standalone JavaScript implementation I wrote last year ([gist](https://gist.github.com/leecrossley/4078996)).
